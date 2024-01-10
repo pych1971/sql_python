@@ -23,7 +23,7 @@ import sqlite3
 #     First_name TEXT NOT NULL,
 #     Last_name TEXT NOT NULL);
 # """)
-# db.commit()  # Сохренение запроса
+# db.commit()  # Сохранение запроса
 # print('Создание таблицы Students')
 # """Заполнение таблицы Students"""
 # cur.execute("""INSERT INTO Students(First_name, Last_name)
@@ -93,8 +93,8 @@ db = sqlite3.connect(r'c:\Users\Oleg\YandexDisk\Programming\SQL\qa_testing.db') 
 print('Подключились к базе данных')
 cur = db.cursor()  # Переменная для управления базой данных
 
-# cur.execute("""SELECT * FROM Students;""")  # Запрос для получения содержимого таблицы Students
-cur.execute("""SELECT * FROM Students WHERE StudentsID = 1;""")
+cur.execute("""SELECT * FROM Students;""")  # Запрос для получения содержимого таблицы Students
+# cur.execute("""SELECT * FROM Students WHERE StudentsID = 1;""")
 # result_one = cur.fetchone()  # Одно значение
 # result_many = cur.fetchmany(2)  # Несколько значений
 result_all = cur.fetchall()  # Все значения
