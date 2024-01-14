@@ -58,13 +58,13 @@ while True:
 while True:
     try:
         in_sum = int(input("""\nКакая сумма Вас интересует?\n"""))
-        if type(in_sum) == int:
+        if type(in_sum) == int and in_sum > 0:
             break
         else:
-            print('Необходимо ввести целое число!')
+            print('Необходимо ввести целое положительное число!')
             continue
     except ValueError:
-        print('Необходимо ввести целое число!')
+        print('Необходимо ввести целое положительное число!')
         continue
 
 """Получаем название валюты, которую пользователь готов предложить взамен"""
@@ -96,6 +96,7 @@ if in_sum * rates[in_currency - 1][out_currency - 1] > user_currencies[0][out_cu
 else:
     user_currencies_new[in_currency] += in_sum
     user_currencies_new[out_currency] -= in_sum * rates[in_currency - 1][out_currency - 1]
+    print('Операция успешна!')
 
 cur.execute("""UPDATE users_balance SET Balance_RUB = ?, Balance_USD = ?, Balance_EUR = ? WHERE UserID = 1""",
             user_currencies_new[1:])
