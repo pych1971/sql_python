@@ -97,7 +97,13 @@ elif decision == 3:  # Восстановление пароля по коду
     j = False
     for i in range(len(user_all)):
         if user == user_all[i][1] and code == user_all[i][3]:
-            password = input('Введите новый пароль:')
+            while True:
+                password = input('Введите пароль:')
+                if password != '':
+                    break
+                else:
+                    print('Пароль не может быть пустым!')
+                    continue
             update_params = (password, user)
             cur.execute("""UPDATE users_data SET Password = ? WHERE Login = ?""", update_params)
             db.commit()
